@@ -1,4 +1,4 @@
-# Exercise 2.2 from python OOP Udemy course
+# Exercise 2.3 from python OOP Udemy course
 
 class Book():
     def __init__(self, isbn, title, author, publisher, pages, price, copies):
@@ -13,6 +13,18 @@ class Book():
     def display(self):
         print(self.isbn, self.title, self.price, self.copies)
 
+    def in_stock(self):
+        if self.copies > 0 :
+            return True
+        else:
+            return False
+
+    def sell(self):
+        if self.in_stock():
+            self.copies -= 1    
+        else:
+            print("The book is out of stock")
+
 book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,10)
 book2 = Book('652-6-86-748413-3', 'Learn Chemistry','Jack', 'CBC', 400, 220,20)
 book3 = Book('957-7-39-347216-2', 'Learn Maths','John', 'XYZ', 500, 300,5)
@@ -22,3 +34,7 @@ book1.display()
 book2.display()
 book3.display()
 book4.display()
+
+book1.in_stock()
+book1.sell()
+book1.display()
